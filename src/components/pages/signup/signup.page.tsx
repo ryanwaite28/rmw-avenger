@@ -1,5 +1,6 @@
 import React, { useContext, useRef } from'react';
 import './signup.page.scss';
+import { useNavigate } from "react-router-dom";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { AppStoreContext } from '../../../stores/app-store.context';
@@ -7,12 +8,19 @@ import { AppStoreContext } from '../../../stores/app-store.context';
 
 
 export function SignupPage(props: any) {
+  const navigate = useNavigate();
+  const appStoreContext = useContext(AppStoreContext);
+
+  if (!!appStoreContext.you) {
+    return navigate(`/users/${appStoreContext.you.uid}`);
+  }
+
+
   const ref_displayname = useRef<HTMLInputElement | null>(null);
   const ref_email = useRef<HTMLInputElement | null>(null);
   const ref_password = useRef<HTMLInputElement | null>(null);
   const ref_password_confirm = useRef<HTMLInputElement | null>(null);
 
-  const appStoreContext = useContext(AppStoreContext);
 
   console.log({ appStoreContext });
 

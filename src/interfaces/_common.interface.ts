@@ -2,8 +2,12 @@ import { HttpStatusCode } from "../enums/http-codes.enum";
 
 
 
-export interface IUser {
-  
+export interface IUserInfo {
+  uid: string,
+  authProvider: string,
+  name: string,
+  email: string,
+  created_at: number,
 }
 
 
