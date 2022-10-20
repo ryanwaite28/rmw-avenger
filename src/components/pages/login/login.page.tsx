@@ -12,7 +12,7 @@ export function LoginPage(props: any) {
   const appStoreContext = useContext(AppStoreContext);
 
   if (!!appStoreContext.you) {
-    return navigate(`/users/${appStoreContext.you.uid}`);
+    navigate(`/users/${appStoreContext.you.uid}`);
   }
 
 
